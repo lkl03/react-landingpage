@@ -46,7 +46,10 @@ const ContactShape = styled.div`
   background-color: #f88497;
 `
 
-function App() {
+const App = () => {
+  
+  const smallScreen = window.innerWidth <= 480 ? true : false
+  
   return (
     <>
       <Container>
@@ -54,13 +57,13 @@ function App() {
         <Intro/>
         <IntroShape/>
       </Container>
-      <Container>
+      <Container style={{height: '90vh'}}>
         <Feature/>
         <FeatureShape/>
       </Container>
       <Container>
         <Service/>
-        <ServiceShape/>
+        {!smallScreen && <ServiceShape />}
       </Container>
       <Container>
         <Price/>
